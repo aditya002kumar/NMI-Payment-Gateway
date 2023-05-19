@@ -1,0 +1,59 @@
+<head>
+  <title>Transaction Response</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      background-color: #ffffff;
+    }
+
+    .container {
+      max-width: 90%;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid grey;
+      border-radius: 10px;
+      background-image: linear-gradient(rgb(255, 247, 247), rgb(186, 245, 174));
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .response {
+      border: 1px solid #ccc;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .status {
+      font-weight: bold;
+    }
+
+    .amount {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Transaction Response</h1>
+    <div class="response">
+      <p class="status">Transaction Status: <span id="status"></span></p>
+      <p class="message">Transaction Id: <span id="transactionId"></span></p>
+      <p class="amount">Auth Code: <span id="authCode"></span></p>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    document.getElementById("status").innerHTML = urlParams.get("responseText");
+    document.getElementById("transactionId").innerHTML =
+      urlParams.get("transactionId");
+    document.getElementById("authCode").innerHTML = urlParams.get("authCode");
+  </script>
+</body>
